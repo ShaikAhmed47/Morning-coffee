@@ -1,0 +1,7 @@
+@model MorningCoffee.ViewModels.CartViewModel
+@{ViewBag.Title="Cart";}
+<h1>Your Cart</h1>
+@if(!Model.Items.Any()){<div class="alert alert-info">Your cart is empty. <a href="@Url.Action("Index","Menu")">Browse menu</a>.</div>}else{
+<table class="table align-middle"><thead><tr><th>Item</th><th>Price</th><th>Qty</th><th>Total</th><th></th></tr></thead><tbody>
+@foreach(var i in Model.Items){<tr><td>@i.Name</td><td>₹@i.UnitPrice.ToString("0.00")</td><td>@using(Html.BeginForm("Update","Cart",FormMethod.Post,new{@class="d-flex",style="max-width:130px"})){<input type="hidden" name="id" value="@i.ProductId"/><input class="form-control" type="number" min="0" name="quantity" value="@i.Quantity"/><button class="btn btn-sm btn-outline-secondary">↻</button>}</td><td>₹@i.LineTotal.ToString("0.00")</td><td><a class="btn btn-sm btn-outline-danger" href="@Url.Action("Remove",new{id=i.ProductId})">Remove</a></td></tr>}</tbody></table>
+<div class="card p-4 ms-auto" style="max-width:380px"><div class="d-flex justify-content-between"><span>Subtotal</span><b>₹@Model.Subtotal.ToString("0.00")</b></div><div class="d-flex justify-content-between"><span>Tax (5%)</span><b>₹@Model.Tax.ToString("0.00")</b></div><hr/><div class="d-flex justify-content-between fs-4"><span>Total</span><b>₹@Model.Total.ToString("0.00")</b></div><a class="btn btn-primary mt-3" href="@Url.Action("Checkout","Order")">Proceed to Checkout</a></div>}

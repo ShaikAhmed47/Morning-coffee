@@ -1,0 +1,3 @@
+@model IEnumerable<MorningCoffee.Models.Product>
+@{ViewBag.Title="Products";}<div class="d-flex justify-content-between"><h1>Products</h1><a class="btn btn-primary" href="@Url.Action("ProductForm")">+ Add Product</a></div>
+<table class="table mt-3"><tr><th>Name</th><th>Category</th><th>Price</th><th>Available</th><th></th></tr>@foreach(var p in Model){<tr><td>@p.Name</td><td>@p.Category.Name</td><td>₹@p.Price.ToString("0.00")</td><td>@p.IsAvailable</td><td><a class="btn btn-sm btn-outline-primary" href="@Url.Action("ProductForm",new{id=p.ProductId})">Edit</a> <a class="btn btn-sm btn-outline-danger" href="@Url.Action("DeleteProduct",new{id=p.ProductId})">Disable</a></td></tr>}</table>

@@ -1,0 +1,6 @@
+@model MorningCoffee.Models.Product
+@{ViewBag.Title=Model.Name;}
+<div class="row"><div class="col-md-5"><div class="product-img large">@if(!string.IsNullOrWhiteSpace(Model.ImageUrl)){<img src="@Model.ImageUrl"/>}else{<span>☕</span>}</div></div>
+<div class="col-md-7"><small>@Model.Category.Name</small><h1>@Model.Name</h1><p class="lead">@Model.Description</p><h2>₹@Model.Price.ToString("0.00")</h2>
+@using(Html.BeginForm("Add","Cart",new{id=Model.ProductId},FormMethod.Post)){<div class="input-group mb-3" style="max-width:220px"><input class="form-control" type="number" name="quantity" value="1" min="1"/><button class="btn btn-primary">Add to Cart</button></div>}
+</div></div>

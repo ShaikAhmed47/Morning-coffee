@@ -1,0 +1,140 @@
+/* MorningCoffee Theme Colors & Typography */
+:root {
+    --coffee-dark: #3e2723;
+    --coffee-medium: #5d4037;
+    --coffee-light: #d7ccc8;
+    --coffee-cream: #efebe9;
+    --coffee-accent: #ffb300; /* Warm amber/yellow */
+    --coffee-text: #4e342e;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--coffee-cream);
+    color: var(--coffee-text);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-font {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+.coffee-nav {
+    background-color: var(--coffee-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.coffee-nav .navbar-brand {
+    font-size: 1.8rem;
+    color: var(--coffee-accent) !important;
+}
+
+.coffee-nav .nav-link {
+    color: rgba(255,255,255,0.8) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.coffee-nav .nav-link:hover {
+    color: var(--coffee-accent) !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(62,39,35,0.9), rgba(93,64,55,0.8)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.display-coffee {
+    font-size: 10rem;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.product-card {
+    overflow: hidden;
+}
+
+.product-img {
+    height: 220px;
+    background: var(--coffee-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--coffee-medium);
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.08);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--coffee-medium);
+    border-color: var(--coffee-medium);
+}
+
+.btn-primary:hover {
+    background-color: var(--coffee-dark);
+    border-color: var(--coffee-dark);
+}
+
+.btn-warning {
+    background-color: var(--coffee-accent);
+    border-color: var(--coffee-accent);
+    color: #000;
+}
+
+/* Footer */
+.coffee-footer {
+    background-color: var(--coffee-dark);
+    color: rgba(255,255,255,0.7);
+}
+
+.coffee-footer h4 {
+    font-size: 1.5rem;
+}

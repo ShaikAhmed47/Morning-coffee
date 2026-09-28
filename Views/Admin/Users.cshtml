@@ -1,0 +1,2 @@
+@model IEnumerable<MorningCoffee.Models.AppUser>
+@{ViewBag.Title="Users";}<h1>Users</h1><table class="table"><tr><th>Name</th><th>Email</th><th>Role</th><th>Created</th></tr>@foreach(var u in Model){<tr><td>@u.FullName</td><td>@u.Email</td><td>@u.Role</td><td>@u.CreatedAt.ToString("dd MMM yyyy")</td></tr>}</table>

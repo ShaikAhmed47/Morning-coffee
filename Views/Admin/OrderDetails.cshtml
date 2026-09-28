@@ -1,0 +1,5 @@
+@model MorningCoffee.Models.Order
+@{ViewBag.Title="Order Details";}<h1>Order #@Model.OrderId</h1><p><strong>Customer:</strong> @Model.Customer.FullName | <strong>Payment:</strong> @Model.PaymentMethod | <strong>Status:</strong> @Model.Status</p>
+<table class="table"><tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th></tr>@foreach(var d in Model.OrderDetails){<tr><td>@d.ProductName</td><td>@d.Quantity</td><td>₹@d.UnitPrice.ToString("0.00")</td><td>₹@d.LineTotal.ToString("0.00")</td></tr>}</table>
+<p class="text-end"><strong>Subtotal ₹@Model.Subtotal.ToString("0.00")</strong><br/>Tax ₹@Model.Tax.ToString("0.00")<br/><span class="fs-4">Total ₹@Model.Total.ToString("0.00")</span></p>
+<a class="btn btn-primary" href="@Url.Action("EditOrderStatus",new{id=Model.OrderId})">Update Status</a>

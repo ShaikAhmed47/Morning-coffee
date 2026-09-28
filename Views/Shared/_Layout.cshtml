@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - MorningCoffee</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark coffee-nav sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold logo-font" href="@Url.Action("Index","Home")">
+            <i class="fa-solid fa-mug-hot me-2 text-warning"></i>MorningCoffee
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+        <div id="nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Menu")"><i class="fa-solid fa-book-open text-warning me-1"></i> Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="@Url.Action("About","Home")"><i class="fa-solid fa-store text-warning me-1"></i> About</a></li>
+                <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")"><i class="fa-solid fa-envelope text-warning me-1"></i> Contact</a></li>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link fs-5" href="@Url.Action("Index","Cart")"><i class="fa-solid fa-cart-shopping text-warning"></i> Cart</a></li>
+                @if (Request.IsAuthenticated) {
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("MyOrders","Order")">My Orders</a></li>
+                    if ((Session["Role"] as string)=="Admin") { 
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Dashboard","Admin")">Admin</a></li> 
+                    }
+                    <li class="nav-item"><a class="btn btn-outline-warning btn-sm ms-2" href="@Url.Action("Logout","Account")">Logout</a></li>
+                } else {
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Login","Account")">Login</a></li>
+                    <li class="nav-item"><a class="btn btn-warning fw-bold text-dark btn-sm ms-2 rounded-pill px-3" href="@Url.Action("Register","Account")">Register</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5">
+    @RenderBody()
+</main>
+
+<footer class="text-center py-4 border-top mt-auto coffee-footer">
+    <div class="container">
+        <h4 class="logo-font text-warning mb-3"><i class="fa-solid fa-mug-hot"></i> MorningCoffee</h4>
+        <p class="mb-0 text-white-50">© @DateTime.Now.Year MorningCoffee · Fresh coffee, every morning.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@RenderSection("scripts", required:false)
+</body>
+</html>

@@ -1,0 +1,3 @@
+@model MorningCoffee.Models.Order
+@{ViewBag.Title="Update Order Status";}<h1>Update Order #@Model.OrderId</h1>
+@using(Html.BeginForm()){ @Html.AntiForgeryToken();<select class="form-select mb-3" name="status" style="max-width:350px">@foreach(var s in new[]{"Pending","Confirmed","Preparing","Ready","Completed","Cancelled"}){<option @(s==Model.Status?"selected":"")>@s</option>}</select><button class="btn btn-primary">Save Status</button>}

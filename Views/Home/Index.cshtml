@@ -1,0 +1,43 @@
+@{ ViewBag.Title="Home"; }
+<div class="hero rounded-4 p-5 mb-5">
+    <div class="row align-items-center">
+        <div class="col-md-7">
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill shadow-sm"><i class="fa-solid fa-fire me-1"></i> Freshly brewed</span>
+            <h1 class="display-4 fw-bold">Start your morning with better coffee.</h1>
+            <p class="lead fw-light mt-3 mb-4">Handcrafted coffee, fresh pastries and warm moments at MorningCoffee.</p>
+            <a class="btn btn-warning btn-lg fw-bold rounded-pill px-4" href="@Url.Action("Index","Menu")">Explore Menu <i class="fa-solid fa-arrow-right ms-2"></i></a>
+        </div>
+        <div class="col-md-5 text-center display-coffee text-warning mt-4 mt-md-0">
+            <i class="fa-solid fa-mug-hot"></i>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex align-items-center mb-4">
+    <h2 class="fw-bold mb-0">Why MorningCoffee?</h2>
+    <div class="flex-grow-1 border-bottom border-secondary ms-3 opacity-25"></div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card p-4 h-100 text-center border-0 shadow-sm">
+            <div class="mb-3 text-warning fs-1"><i class="fa-solid fa-seedling"></i></div>
+            <h4 class="fw-bold text-dark">Fresh Coffee</h4>
+            <p class="text-muted mb-0">Beans selected and brewed for a rich, smooth cup.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100 text-center border-0 shadow-sm">
+            <div class="mb-3 text-warning fs-1"><i class="fa-solid fa-cookie-bite"></i></div>
+            <h4 class="fw-bold text-dark">Fresh Bakes</h4>
+            <p class="text-muted mb-0">Simple pastries and snacks made for your morning.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100 text-center border-0 shadow-sm">
+            <div class="mb-3 text-warning fs-1"><i class="fa-solid fa-bolt"></i></div>
+            <h4 class="fw-bold text-dark">Fast Service</h4>
+            <p class="text-muted mb-0">Order online and get your coffee without the wait.</p>
+        </div>
+    </div>
+</div>

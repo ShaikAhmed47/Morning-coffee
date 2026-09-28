@@ -1,0 +1,13 @@
+@model MorningCoffee.Models.Product
+@{ViewBag.Title="Product"; var cats=ViewBag.Categories as List<MorningCoffee.Models.Category>;}
+<h1>@(Model.ProductId==0?"Add Product":"Edit Product")</h1>
+@using(Html.BeginForm()){ @Html.AntiForgeryToken(); @Html.HiddenFor(x=>x.ProductId); @Html.ValidationSummary(true,"",new{@class="text-danger"})
+<div class="row"><div class="col-md-8">
+<div class="mb-3">@Html.LabelFor(x=>x.Name) @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Description) @Html.TextAreaFor(x=>x.Description,new{@class="form-control"})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Price) @Html.TextBoxFor(x=>x.Price,new{@class="form-control",type="number",step="0.01"})</div>
+<div class="mb-3"><label>Category</label><select name="CategoryId" class="form-select">@foreach(var c in cats){<option value="@c.CategoryId" @(c.CategoryId==Model.CategoryId?"selected":"")>@c.Name</option>}</select></div>
+<div class="mb-3">@Html.LabelFor(x=>x.ImageUrl) @Html.TextBoxFor(x=>x.ImageUrl,new{@class="form-control",placeholder="https://..."})</div>
+<div class="form-check mb-3">@Html.CheckBoxFor(x=>x.IsAvailable,new{@class="form-check-input"}) @Html.LabelFor(x=>x.IsAvailable)</div>
+<button class="btn btn-primary">Save</button> <a class="btn btn-secondary" href="@Url.Action("Products")">Cancel</a>
+</div></div>}

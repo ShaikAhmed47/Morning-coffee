@@ -1,0 +1,5 @@
+@model MorningCoffee.ViewModels.DashboardViewModel
+@{ViewBag.Title="Admin Dashboard";}<h1>Admin Dashboard</h1>
+<div class="row g-3 my-3"><div class="col-md-3"><div class="stat"><small>Products</small><b>@Model.ProductCount</b></div></div><div class="col-md-3"><div class="stat"><small>Customers</small><b>@Model.CustomerCount</b></div></div><div class="col-md-3"><div class="stat"><small>Orders</small><b>@Model.OrderCount</b></div></div><div class="col-md-3"><div class="stat"><small>Revenue</small><b>₹@Model.Revenue.ToString("0.00")</b></div></div></div>
+<div class="mb-4"><a class="btn btn-primary" href="@Url.Action("Products")">Products</a> <a class="btn btn-outline-primary" href="@Url.Action("Categories")">Categories</a> <a class="btn btn-outline-primary" href="@Url.Action("Orders")">Orders</a> <a class="btn btn-outline-primary" href="@Url.Action("Users")">Users</a></div>
+<h3>Recent Orders</h3><table class="table"><tr><th>#</th><th>Customer</th><th>Status</th><th>Total</th></tr>@foreach(var o in Model.RecentOrders){<tr><td>@o.OrderId</td><td>@o.Customer.FullName</td><td>@o.Status</td><td>₹@o.Total.ToString("0.00")</td></tr>}</table>

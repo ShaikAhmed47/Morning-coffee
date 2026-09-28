@@ -1,0 +1,11 @@
+@model MorningCoffee.ViewModels.LoginViewModel
+@{ViewBag.Title="Login";}
+<h2>Login</h2><div class="row"><div class="col-md-6">
+@using(Html.BeginForm()){ @Html.AntiForgeryToken(); @Html.ValidationSummary(true,"",new {@class="text-danger"})
+<div class="mb-3">@Html.LabelFor(x=>x.Email) @Html.TextBoxFor(x=>x.Email,new {@class="form-control"}) @Html.ValidationMessageFor(x=>x.Email)</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Password) @Html.PasswordFor(x=>x.Password,new {@class="form-control"}) @Html.ValidationMessageFor(x=>x.Password)</div>
+<div class="mb-3">@Html.CheckBoxFor(x=>x.RememberMe) @Html.LabelFor(x=>x.RememberMe)</div>
+<button class="btn btn-primary">Login</button> <a href="@Url.Action("Register")">Create account</a>
+}
+</div></div>
+@section scripts{ @Html.Partial("_ValidationScriptsPartial") }

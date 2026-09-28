@@ -1,0 +1,10 @@
+@model MorningCoffee.ViewModels.CheckoutViewModel
+@{ViewBag.Title="Checkout";}
+<h1>Checkout</h1><div class="row"><div class="col-md-7">@using(Html.BeginForm()){ @Html.AntiForgeryToken(); @Html.ValidationSummary(true,"",new{@class="text-danger"})
+<div class="mb-3">@Html.LabelFor(x=>x.FullName) @Html.TextBoxFor(x=>x.FullName,new{@class="form-control"})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Email) @Html.TextBoxFor(x=>x.Email,new{@class="form-control"})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Phone) @Html.TextBoxFor(x=>x.Phone,new{@class="form-control"})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.Address) @Html.TextAreaFor(x=>x.Address,new{@class="form-control",rows=3})</div>
+<div class="mb-3">@Html.LabelFor(x=>x.PaymentMethod)<select name="PaymentMethod" class="form-select"><option value="Cash on Delivery">Cash on Delivery</option><option value="UPI">UPI</option><option value="Card">Card</option></select></div>
+<button class="btn btn-primary btn-lg">Place Order</button>}</div></div>
+@section scripts{ @Html.Partial("_ValidationScriptsPartial") }

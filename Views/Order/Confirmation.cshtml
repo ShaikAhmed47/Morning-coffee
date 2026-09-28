@@ -1,0 +1,4 @@
+@model MorningCoffee.Models.Order
+@{ViewBag.Title="Order Confirmation";}
+<div class="text-center py-5"><div class="display-1">✅</div><h1>Order Confirmed!</h1><p class="lead">Order #@Model.OrderId has been placed.</p><p>Status: <strong>@Model.Status</strong></p><a class="btn btn-primary" href="@Url.Action("MyOrders")">View My Orders</a></div>
+<div class="card p-4"><h4>Order Summary</h4>@foreach(var d in Model.OrderDetails){<div class="d-flex justify-content-between"><span>@d.ProductName × @d.Quantity</span><span>₹@d.LineTotal.ToString("0.00")</span></div>}<hr/><div class="d-flex justify-content-between"><span>Total</span><strong>₹@Model.Total.ToString("0.00")</strong></div></div>
